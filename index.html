@@ -2,24 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zostaniecie moimi walentynkami? 🧸💝</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Zostaniesz moją walentynką? 🧸💝</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html, body {
             font-family: 'Poppins', sans-serif;
             min-height: 100vh;
             background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #f6d365 100%);
             overflow-x: hidden;
-            margin: 0;
-            padding: 20px;
         }
-
+        
         .romantic-font {
             font-family: 'Dancing Script', cursive;
         }
-
+        
         .floating-heart {
             position: fixed;
             animation: float 6s ease-in-out infinite;
@@ -27,35 +31,25 @@
             pointer-events: none;
             z-index: 0;
         }
-
+        
         @keyframes float {
-            0%, 100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-
-            50% {
-                transform: translateY(-20px) rotate(5deg);
-            }
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
         }
-
+        
         @keyframes heartbeat {
-            0%, 100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.05);
-            }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
-
+        
         .heartbeat {
             animation: heartbeat 2s ease-in-out infinite;
         }
-
+        
         .btn-transition {
             transition: all 0.3s ease;
         }
-
+        
         .confetti {
             position: fixed;
             width: 10px;
@@ -64,55 +58,33 @@
             animation: confetti-fall 3s ease-out forwards;
             z-index: 9999;
         }
-
+        
         @keyframes confetti-fall {
-            0% {
-                transform: translateY(-100px) rotate(0deg);
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateY(100vh) rotate(720deg);
-                opacity: 0;
-            }
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
         }
-
+        
         .hidden {
             display: none !important;
         }
-
+        
         .fade-in {
             animation: fadeIn 0.5s ease-in;
         }
-
+        
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
+        
         .shake {
             animation: shake 0.5s ease-in-out;
         }
-
+        
         @keyframes shake {
-            0%, 100% {
-                transform: translateX(0);
-            }
-
-            25% {
-                transform: translateX(-5px);
-            }
-
-            75% {
-                transform: translateX(5px);
-            }
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
         }
 
         .kiss-gif {
@@ -125,8 +97,9 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: calc(100vh - 40px);
+            min-height: 100vh;
             width: 100%;
+            padding: 10px;
             position: relative;
             z-index: 10;
         }
@@ -137,7 +110,7 @@
             border-radius: 24px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.15);
             border: 4px solid #fbcfe8;
-            padding: 2rem;
+            padding: 1.5rem;
             width: 100%;
             max-width: 600px;
             display: flex;
@@ -146,35 +119,30 @@
             position: relative;
         }
 
-        /* Question card centered */
         #questionCard {
             margin: auto;
         }
 
-        /* Success card positioned in center with cat above */
         #successCard {
             position: relative;
-            margin-top: 100px;
+            margin-top: 80px;
         }
 
         .teddy-section {
-            margin-bottom: 1rem;
-            flex-shrink: 0;
+            margin-bottom: 0.5rem;
         }
 
         .title-section {
             text-align: center;
-            margin-bottom: 1.5rem;
-            flex-shrink: 0;
+            margin-bottom: 1rem;
         }
 
         .buttons-section {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1rem;
+            gap: 0.75rem;
             width: 100%;
-            flex-shrink: 0;
         }
 
         #yesBtn {
@@ -182,71 +150,237 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 1rem 2rem;
-            font-size: 1.25rem;
-            min-width: 140px;
+            padding: 0.875rem 1.75rem;
+            font-size: 1.1rem;
+            min-width: 120px;
             height: auto;
             line-height: 1.5;
         }
 
         #noBtn {
             white-space: nowrap;
-            padding: 1rem 2rem;
-            font-size: 1.25rem;
-            min-width: 160px;
+            padding: 0.875rem 1.75rem;
+            font-size: 1.1rem;
+            min-width: 140px;
         }
 
         .teddy-gif {
-            max-width: 200px;
+            max-width: 150px;
             width: 100%;
             height: auto;
             display: block;
         }
 
-
+        /* Happy cat container - centered properly */
         .happy-cat-container {
             position: absolute;
             top: 100px;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
             z-index: 100;
             pointer-events: none;
         }
 
+        /* Happy cat with proper centering animation */
         .happy-cat {
-            width: 300px;
+            width: 220px;
             height: auto;
             filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
             animation: bounce-in 0.6s ease-out;
+            transform-origin: center bottom;
         }
 
         @keyframes bounce-in {
-            0% {
-                transform: translateX(-50%) scale(0) translateY(-50px);
-                opacity: 0;
+            0% { transform: scale(0) translateY(-30px); opacity: 0; }
+            50% { transform: scale(1.2) translateY(10px); }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
+        }
+
+        /* Very small phones - iPhone Mini, small Android */
+        @media (max-width: 375px) {
+            .valentine-card {
+                padding: 1rem;
+                border-radius: 20px;
+            }
+            
+            .romantic-font {
+                font-size: 1.4rem;
+                line-height: 1.2;
+            }
+            
+            .teddy-gif {
+                max-width: 120px;
             }
 
-            50% {
-                transform: translateX(-50%) scale(1.2) translateY(10px);
+            .happy-cat {
+                width: 160px;
             }
 
-            100% {
-                transform: translateX(-50%) scale(1) translateY(0);
-                opacity: 1;
+            .happy-cat-container {
+                top: 15px;
+            }
+
+            #successCard {
+                margin-top: 50px;
+            }
+
+            #yesBtn, #noBtn {
+                font-size: 0.95rem;
+                padding: 0.7rem 1.4rem;
+                min-width: 100px;
+            }
+
+            .kiss-gif {
+                width: 120px !important;
+                height: 120px !important;
+            }
+
+            .text-2xl {
+                font-size: 1rem !important;
+            }
+
+            .p-6 {
+                padding: 0.75rem !important;
+            }
+
+            .mb-4 {
+                margin-bottom: 0.5rem !important;
+            }
+
+            .mb-6 {
+                margin-bottom: 1rem !important;
             }
         }
 
-        /* Samsung S23 and S23+ (1080 x 2340 physical pixels, DPR 2.75) */
-        @media screen and (min-width: 1000px) and (max-width: 1081px) and (min-height: 2300px) and (max-height: 2341px) and (-webkit-device-pixel-ratio: 2.75) {
+        /* Small phones - iPhone 12/13/14/15, Samsung S23 */
+        @media (min-width: 376px) and (max-width: 395px) {
+            .valentine-card {
+                padding: 1.2rem;
+                border-radius: 22px;
+            }
+            
+            .romantic-font {
+                font-size: 1.6rem;
+                line-height: 1.2;
+            }
+            
+            .teddy-gif {
+                max-width: 140px;
+            }
+
+            .happy-cat {
+                width: 200px;
+            }
+
+            .happy-cat-container {
+                top: 15px;
+            }
+
+            #successCard {
+                margin-top: 60px;
+            }
+
+            #yesBtn, #noBtn {
+                font-size: 1.05rem;
+                padding: 0.8rem 1.6rem;
+            }
+
+            .kiss-gif {
+                width: 140px !important;
+                height: 140px !important;
+            }
+
+            .text-2xl {
+                font-size: 1.1rem !important;
+            }
+        }
+
+        /* Medium phones - Samsung S23 Ultra, iPhone Pro */
+        @media (min-width: 396px) and (max-width: 420px) {
+            .valentine-card {
+                padding: 1.4rem;
+            }
+            
+            .romantic-font {
+                font-size: 1.75rem;
+            }
+            
+            .teddy-gif {
+                max-width: 155px;
+            }
+
+            .happy-cat {
+                width: 230px;
+            }
+
+            .happy-cat-container {
+                top: 15px;
+            }
+
+            #successCard {
+                margin-top: 70px;
+            }
+
+            #yesBtn, #noBtn {
+                font-size: 1.15rem;
+                padding: 0.9rem 1.8rem;
+            }
+
+            .kiss-gif {
+                width: 160px !important;
+                height: 160px !important;
+            }
+        }
+
+        /* Large phones - iPhone Pro Max, Plus models */
+        @media (min-width: 421px) and (max-width: 450px) {
+            .valentine-card {
+                padding: 1.6rem;
+            }
+            
+            .romantic-font {
+                font-size: 1.9rem;
+            }
+            
+            .teddy-gif {
+                max-width: 170px;
+            }
+
+            .happy-cat {
+                width: 260px;
+            }
+
+            .happy-cat-container {
+                top: 15px;
+            }
+
+            #successCard {
+                margin-top: 85px;
+            }
+
+            #yesBtn, #noBtn {
+                font-size: 1.25rem;
+                padding: 1rem 2rem;
+            }
+
+            .kiss-gif {
+                width: 180px !important;
+                height: 180px !important;
+            }
+        }
+
+        /* Extra large phones */
+        @media (min-width: 451px) and (max-width: 640px) {
             .valentine-card {
                 padding: 1.8rem;
-                max-width: 95%;
             }
-
+            
             .romantic-font {
-                font-size: 2.2rem;
+                font-size: 2.1rem;
             }
-
+            
             .teddy-gif {
                 max-width: 180px;
             }
@@ -256,11 +390,38 @@
             }
 
             .happy-cat-container {
-                top: 20px;
+                top: 15px;
             }
 
             #successCard {
-                margin-top: 90px;
+                margin-top: 95px;
+            }
+        }
+
+        /* Tablets and desktop */
+        @media (min-width: 641px) {
+            .valentine-card {
+                padding: 2rem;
+            }
+            
+            .romantic-font {
+                font-size: 2.5rem;
+            }
+            
+            .teddy-gif {
+                max-width: 200px;
+            }
+
+            .happy-cat {
+                width: 300px;
+            }
+
+            .happy-cat-container {
+                top: 15px;
+            }
+
+            #successCard {
+                margin-top: 110px;
             }
 
             #yesBtn, #noBtn {
@@ -269,137 +430,35 @@
             }
         }
 
-        /* Samsung S23 Ultra (1440 x 3088 physical pixels, DPR 3.75) */
-        @media screen and (min-width: 1286px) and (max-width: 1441px) and (min-height: 2800px) and (max-height: 3100px) and (-webkit-device-pixel-ratio: 3.75) {
+        /* Landscape mode adjustments */
+        @media (max-height: 500px) and (orientation: landscape) {
             .valentine-card {
-                padding: 1.6rem;
-                max-width: 95%;
+                padding: 0.8rem;
             }
-
+            
             .romantic-font {
-                font-size: 2.1rem;
-            }
-
-            .teddy-gif {
-                max-width: 170px;
-            }
-
-            .happy-cat {
-                width: 270px;
-            }
-
-            .happy-cat-container {
-                top: 20px;
-            }
-
-            #successCard {
-                margin-top: 85px;
-            }
-        }
-
-        /* iPhone 12/13/14/15 (1170 x 2532 physical pixels, DPR 3) */
-        @media screen and (min-width: 1082px) and (max-width: 1171px) and (min-height: 2342x) and (max-height: 2533px) and (-webkit-device-pixel-ratio: 3) {
-            .valentine-card {
-                padding: 1.8rem;
-                max-width: 95%;
-            }
-
-            .romantic-font {
-                font-size: 2.2rem;
-            }
-
-            .teddy-gif {
-                max-width: 175px;
-            }
-
-            .happy-cat {
-                width: 280px;
-            }
-
-            .happy-cat-container {
-                top: 20px;
-            }
-
-            #successCard {
-                margin-top: 90px;
-            }
-
-            #yesBtn, #noBtn {
                 font-size: 1.3rem;
             }
-        }
-
-        /* iPhone 12/13/14/15 Pro Max and Plus (1284 x 2778 physical pixels, DPR 3) */
-        @media screen and (min-width: 1172px) and (max-width: 1285px) and (min-height: 2534px) and (max-height: 2779px) and (-webkit-device-pixel-ratio: 3) {
-            .valentine-card {
-                padding: 2rem;
-                max-width: 90%;
-            }
-
-            .romantic-font {
-                font-size: 2.4rem;
-            }
-
+            
             .teddy-gif {
-                max-width: 190px;
+                max-width: 100px;
             }
 
             .happy-cat {
-                width: 320px;
+                width: 140px;
             }
 
             .happy-cat-container {
-                top: 20px;
+                top: 15px;
             }
 
             #successCard {
-                margin-top: 100px;
+                margin-top: 40px;
             }
 
-            #yesBtn, #noBtn {
-                font-size: 1.4rem;
-                padding: 1.2rem 2.4rem;
-            }
-        }
-
-        /* Larger phones and small tablets */
-        @media screen and (min-width: 441px) and (max-width: 640px) {
-            .valentine-card {
-                padding: 1.5rem;
-            }
-
-            .romantic-font {
-                font-size: 2rem;
-            }
-
-            .teddy-gif {
-                max-width: 150px;
-            }
-
-            .happy-cat {
-                width: 250px;
-            }
-
-            .happy-cat-container {
-                top: 10px;
-            }
-
-            #successCard {
-                margin-top: 80px;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .happy-cat {
-                width: 200px;
-            }
-
-            .happy-cat-container {
-                top: 10px;
-            }
-
-            #successCard {
-                margin-top: 70px;
+            .kiss-gif {
+                width: 100px !important;
+                height: 100px !important;
             }
         }
     </style>
@@ -412,40 +471,40 @@
 
     <!-- Happy Cat (Hidden Initially) -->
     <div id="happyCat" class="happy-cat-container hidden">
-        <img src="https://raw.githubusercontent.com/Nowczi/Julka-walentynki/master/happy-cat-happy-happy-cat.gif"
-             alt="Happy Cat"
+        <img src="https://raw.githubusercontent.com/Nowczi/Julka-walentynki/master/happy-cat-happy-happy-cat.gif" 
+             alt="Happy Cat" 
              class="happy-cat">
     </div>
 
     <!-- Main Container -->
     <div class="main-container">
-
+        
         <!-- Initial Question Card -->
         <div id="questionCard" class="valentine-card">
-
+            
             <!-- Teddy GIF -->
             <div class="teddy-section">
-                <img src="https://will-you-b-my-valentine.vercel.app/_next/image?url=%2Fplease.gif&w=384&q=75"
-                     alt="Please Teddy"
+                <img src="https://will-you-b-my-valentine.vercel.app/_next/image?url=%2Fplease.gif&w=384&q=75" 
+                     alt="Please Teddy" 
                      class="teddy-gif">
             </div>
 
             <!-- Title -->
             <div class="title-section">
                 <h1 class="romantic-font text-4xl md:text-5xl text-pink-600 leading-tight">
-                    Małgosiu, Marto, Julio, zostaniecie moimi walentynkami?
+                    Julko, czy zostaniesz moją walentynką?
                 </h1>
             </div>
 
             <!-- Buttons -->
             <div class="buttons-section">
-                <button id="yesBtn" onclick="handleYes()"
-                        class="btn-transition bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold rounded-full shadow-lg hover:shadow-xl border-0">
+                <button id="yesBtn" onclick="handleYes()" 
+                    class="btn-transition bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold rounded-full shadow-lg hover:shadow-xl border-0">
                     Tak! ❤️
                 </button>
-
-                <button id="noBtn" onclick="handleNo()"
-                        class="btn-transition bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold rounded-full shadow-md border-0">
+                
+                <button id="noBtn" onclick="handleNo()" 
+                    class="btn-transition bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold rounded-full shadow-md border-0">
                     Nie 😢
                 </button>
             </div>
@@ -453,21 +512,21 @@
 
         <!-- Success Card -->
         <div id="successCard" class="hidden valentine-card" style="max-width: 500px;">
-
+            
             <!-- Bear Kiss GIF -->
             <div class="mb-6 flex justify-center">
-                <img src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif"
-                     alt="Bears Kissing"
+                <img src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif" 
+                     alt="Bears Kissing" 
                      class="kiss-gif w-48 h-48 object-cover heartbeat">
             </div>
-
+            
             <p class="text-gray-700 text-2xl mb-4 px-4 font-semibold">
-                Taaaak, to mój najszczęśliwszy dzień w życiu!<br>
-                <span class="text-pink-500">Kocham was! 💕</span>
+                Taaaak, zgodziłaś się!<br>
+                <span class="text-pink-500">To mój najszczęśliwszy dzień w życiu! 💕</span>
             </p>
-
+            
             <div class="bg-pink-50 rounded-2xl p-6 mx-4 w-full max-w-sm">
-                <p class="text-pink-700 italic text-lg">Dla Małgosi, Marty i Julii od Patryczka</p>
+                <p class="text-pink-700 italic text-lg">Dla kochanej Julki od Patryka</p>
             </div>
         </div>
 
@@ -476,34 +535,35 @@
     <script>
         let noClickCount = 0;
         let yesBtnScale = 1;
-
+        
         const noButtonTexts = [
             "Nie 😢",
             "Proszę? 🥺",
             "Bardzo proszę? 🥹",
-            "Łamiecie mi serduszko 💔",
+            "Bardzo, bardzo proszę 😭",
+            "Zjemy coś dobrego 🙏",
+            "Będą kwiatki 🙏",
+            "Łamiesz mi serduszko 💔",
             "Będzie mi smutno 😭",
-            "Dajcie mi szansę 🙏",
-            "Przemyślcie to 🤔",
-            "Załatwię wam hot Włochów ⚠️",
+            "Daj mi szansę 🙏",
+            "Przemyśl to 🤔",
+            "Ostatnia szansa ⚠️",
             "Serduszko mi pęka 💔",
-            "Powiedzcie taaak! 🥺",
+            "Proszę powiedz tak! 🥺",
             "Błagaaam 🙏",
-            "Nie zostawiajcie mnie 😭",
-            "Nie będę was już denerwował 🙏",
-            "Jesteście moją jedyną nadzieją 🌟",
-            "Moje słodziaki nooo🍬"
+            "Proszę słodziaku 🍬"
         ];
 
-        // Preload the celebration sound
+        // Preload the celebration sound at 30% volume
         const celebrationSound = new Audio('https://raw.githubusercontent.com/Nowczi/Julka-walentynki/master/ssstik.io_1770937662793.mp3');
         celebrationSound.preload = 'auto';
+        celebrationSound.volume = 0.3;
 
         // Generate floating background hearts
         function generateBackgroundHearts() {
             const container = document.getElementById('background-hearts');
             const hearts = ['💕', '💖', '💗', '💓', '💝', '💘', '💞'];
-
+            
             for (let i = 0; i < 20; i++) {
                 const heart = document.createElement('div');
                 heart.className = 'floating-heart text-4xl';
@@ -521,26 +581,26 @@
         function handleNo() {
             const noBtn = document.getElementById('noBtn');
             const yesBtn = document.getElementById('yesBtn');
-
+            
             noClickCount++;
-
+            
             if (noClickCount < noButtonTexts.length) {
                 noBtn.textContent = noButtonTexts[noClickCount];
             } else {
                 const desperateEmojis = ["😭", "💔", "🥺", "😢", "😿", "💘", "💖", "💕"];
                 noBtn.textContent = "Proszę " + desperateEmojis[noClickCount % desperateEmojis.length];
             }
-
+            
             noBtn.classList.add('shake');
             setTimeout(() => noBtn.classList.remove('shake'), 500);
-
+            
             // YES button grows 2x faster
             yesBtnScale += 0.3;
-
+            
             const newPadding = 1 * yesBtnScale;
             const newFontSize = 1.25 * yesBtnScale;
             const newMinWidth = 140 * yesBtnScale;
-
+            
             yesBtn.style.padding = `${newPadding}rem ${newPadding * 2}rem`;
             yesBtn.style.fontSize = `${newFontSize}rem`;
             yesBtn.style.minWidth = `${newMinWidth}px`;
@@ -551,14 +611,14 @@
             const successCard = document.getElementById('successCard');
             successCard.classList.remove('hidden');
             successCard.classList.add('fade-in');
-
+            
             // Show happy cat
             const happyCat = document.getElementById('happyCat');
             happyCat.classList.remove('hidden');
-
+            
             playCelebrationSound();
             createConfetti();
-
+            
             for (let i = 0; i < 20; i++) {
                 setTimeout(() => createFloatingHeart(), i * 100);
             }
@@ -567,7 +627,7 @@
         function playCelebrationSound() {
             celebrationSound.currentTime = 0;
             const playPromise = celebrationSound.play();
-
+            
             if (playPromise !== undefined) {
                 playPromise.catch(error => {
                     console.log('Audio playback failed:', error);
@@ -581,7 +641,7 @@
 
         function createConfetti() {
             const colors = ['#ff6b6b', '#ff8e8e', '#ffb4b4', '#ffd4d4', '#ff4757', '#ff6348', '#ff9ff3', '#feca57', '#48dbfb', '#ff9ff3'];
-
+            
             for (let i = 0; i < 80; i++) {
                 setTimeout(() => {
                     const confetti = document.createElement('div');
@@ -593,7 +653,7 @@
                     confetti.style.width = (Math.random() * 10 + 8) + 'px';
                     confetti.style.height = confetti.style.width;
                     document.body.appendChild(confetti);
-
+                    
                     setTimeout(() => confetti.remove(), 4000);
                 }, i * 20);
             }
@@ -610,7 +670,7 @@
             heart.style.zIndex = '1000';
             heart.style.animation = 'confetti-fall 4s ease-out forwards';
             document.body.appendChild(heart);
-
+            
             setTimeout(() => heart.remove(), 4000);
         }
     </script>
